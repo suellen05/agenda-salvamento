@@ -19,12 +19,15 @@ if (localStorage.listaContatos)
     document.getElementById("lista-Contato").innerHTML = localStorage.listaContatos
 
 
+    btLimpar = document.getElementById("limpar")
+    btLimpar.addEventListener("click", function () {
+        localStorage.clear()
+        document.getElementById("lista-contatos").innerHTML = "-"
+    })
+
     function limpando() {
-        localStorage.clear();
+        e.parentElement.remove();
     }
 
     
-btLimpar = document.getElementById("limpar")
-btLimpar.addEventListener("click", function () {
-    limpando()
-})
+
