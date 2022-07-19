@@ -1,33 +1,30 @@
-function SalvarContato() {
-    nome = document.getElementById("nome").value
-    telefone = document.getElementById("telefone").value
+function salvarContato(){
+    nome = document.getElementById("nome").value;
+    telefone = document.getElementById("telefone").value;
+    novoContato = `<li id="contatos">${nome} - ${telefone}</li>`;
+    listadecontatos = document.getElementById("lista-contatos").innerHTML += novoContato;
 
-    novoContato = nome + " - " + telefone
-    document.getElementById("lista-Contato").innerHTML = novoContato
-
-    localStorage.listaContatos = novoContato
-
+    localStorage.listaContatos = listadecontatos;
 }
 
-btSalvar = document.getElementById("salvar")
-btSalvar.addEventListener("click", function () {
-    SalvarContato()
 
+btSalvar = document.getElementById("salvar");
+btSalvar.addEventListener("click", function(){
+    salvarContato();
+    nome = document.getElementById("nome").value = '';
+    telefone = document.getElementById("telefone").value = '';
 })
 
-if (localStorage.listaContatos)
-    document.getElementById("lista-Contato").innerHTML = localStorage.listaContatos
+if(localStorage.listaContatos){
+document.getElementById("lista-contatos").innerHTML = localStorage.listaContatos;
+}
 
 
-    btLimpar = document.getElementById("limpar")
-    btLimpar.addEventListener("click", function () {
-        localStorage.clear()
-        document.getElementById("lista-contatos").innerHTML = "-"
-    })
-
-    function limpando() {
-        e.parentElement.remove();
-    }
+apagar = document.getElementById("apagar");
+apagar.addEventListener("click", function(){
+    localStorage.clear();
+    document.getElementById("contatos").remove();
+})
 
     
 
